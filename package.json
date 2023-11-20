@@ -1,0 +1,22 @@
+{
+  "name": "fmeyer",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "tinacms dev -c 'astro dev'",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "^0.3.1",
+    "@glidejs/glide": "^3.6.0",
+    "@tinacms/cli": "^1.5.30",
+    "astro": "^3.3.1",
+    "astro-icon": "^0.8.1",
+    "gorko": "^0.9.1",
+    "sass": "^1.68.0",
+    "tinacms": "^1.5.21"
+  }
+}

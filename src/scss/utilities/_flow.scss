@@ -1,0 +1,18 @@
+:where(.flow > * + *) {
+  margin-top: var(--flow-space, 1em);
+}
+
+:where(.flow-left > * + *) {
+  margin-left: var(--flow-space, 1em);
+}
+
+:where(.flow-devider > * + *) {
+  margin-top: var(--flow-space, 1em);
+
+  &::before{
+    content: "";
+    border-top: dashed 1px rgba(get-color('white'), .2);
+    margin-bottom: var(--flow-space, 1em);
+    display: block;
+  }
+}

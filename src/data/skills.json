@@ -1,0 +1,18 @@
+{
+    "items": [
+        {
+            "title": "Nuxt",
+            "icon": "nuxt",
+            "size": "small",
+            "linkUrl": "dads",
+            "highlited": false
+        },
+        {
+            "title": "Sanity",
+            "icon": "sanity",
+            "size": "large",
+            "linkUrl": "dads",
+            "highlited": true
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/mig.webp';
+import settings from '../data/settings.json';
+import { Icon } from 'astro-icon'
+---
+
+<aside class="sidebar [ bg-dark-glare color-light ]">
+    <div class="sidebar__inner-wrapper">
+        <div class="sidebar__profile-image">
+            <Image src={profileImage} width="600" format="webp" quality="70" alt="Billede af Flemming Meyer" />
+        </div>
+        <div class="sidebar__content [ px-700 py-800 flow flow-space-600 md:px-800 ]">
+            <div class="[ flow flow-space-sm ]">
+                <p class="name">Flemming Meyer</p>
+                <p class="position">Webdesigner & frontend udvikler</p>
+            </div>
+            <hr/>
+            <div>
+                <h3>Kontakt info</h3>
+                <ul class="[ flow ] [ flow-space-xs ]">
+                    <li class="opc-80">Møllegade 14A, 6690 Gørding</li>
+                    <li class="weight-bold"><span class="mr-sm">Telefon:</span><a class="decoration-underline" href="tel:28 21 95 00">28 21 95 00</a></li>
+                    <li class="weight-bold"><span class="mr-sm">E-mail:</span><a class="decoration-underline" href="mailto:fmeyer01@hotmail.com">fmeyer01@hotmail.com</a></li>
+                </ul>
+            </div>
+            <hr/>
+            <div>
+                <div class="[ flow ] [ flow-space-300 ]">
+                    <p class="h3">Lidt om mig</p>
+                    <p>Jeg er en frisk og ung? <strong>mand på 43 år</strong>, som bor i <strong>Gørding</strong> Derudover har jeg en <strong>datter på 10 år</strong>, som jeg har hver anden weekend.</p>
+                    <p>I min fritid bruger jeg en del tid på at udbygge mine kompetencer inden for <strong>webudvikling</strong> og <strong>webdesign</strong>, da området ikke kun er et arbejde for mig, men lige så meget en passion. Når jeg ikke lige sider og nørder foran computeren, holder jeg meget af holde mig lidt aktiv i fx fitnesscenteret, da det for mig giver noget ekstra positiv energi til hverdagen.</p>
+                </div>
+            </div>
+            <hr/>
+            <div>
+                <div class="[ flow ] [ flow-space-300 ]">
+                    <p class="h3">Lidt om mig</p>
+                    <p>holde mig lidt aktiv i fx fitnesscenteret, da det for mig giver noget ekstra positiv energi til hverdagen.</p>
+                    <ul class="[ cluster ] [ pt-sm gap-100 ]">
+                        { settings.follow.map((item) =>
+                           <li><a class="btn text-100" data-type="secondary" rel="noreferrer" target="_blank" href={ 'https://www.' + item }>{ item }</a></li>
+                        )}
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+            <div class="sidebar__socialmedia">
+                <h3>Du kan følge mig på</h3>
+                <ul class="list [ cluster ] [ gap-sm ]">
+                    <li>
+                        <a class="btn" data-type="secondary" target="_blank" rel="noreferrer" aria-label="Facebook" href="/">
+                            <Icon name="facebook" class="fill-current h-half" />
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" data-type="secondary"  target="_blank" rel="noreferrer" aria-label="linkedin" href="/">
+                            <Icon name="linkedin" class="fill-current h-half" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+       </div>
+    </div>
+</div>
+</aside>
+
+<style lang="scss">
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+
+    .sidebar{
+    flex-basis: clamp(20rem, 35vw, 30rem);
+    flex-grow: 1;
+    position: relative;
+    z-index: 999;
+
+    &__content > div{
+        container-type: inline-size;
+
+        .name{
+            font-size: 12.6cqi;
+            @include apply-utility('weight', 'bold');
+            @include apply-utility('leading', 'none');
+        }
+        .position{
+            font-size: 6.8cqi;
+            @include apply-utility('opc','60');
+            @include apply-utility('weight','light');
+        }
+
+    }
+   
+
+
+    ul{
+        margin-top: var(--flow-space) !important;
+    }
+
+    &__inner-wrapper{
+        position: sticky;
+        top: 0;
+    }
+
+    &__profile-image{
+        position: relative;
+        border-bottom: dashed 1px rgba(get-color('white'), .2);
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: get-color('primary');
+            mix-blend-mode: color;
+            @include apply-utility('opc','20');
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__socialmedia{
+
+        .list{
+
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: get-size('600');
+                height: get-size('600');
+                padding: 0px;
+            }
+            
+        }
+    }
+
+}
+</style>

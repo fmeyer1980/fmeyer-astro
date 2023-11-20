@@ -1,0 +1,54 @@
+
+---
+const categories = await Astro.glob('../content/categories/*.md');
+import { Icon } from 'astro-icon'
+import CategoryItem from './CategoryItem.astro';
+import SkillsList from '../components/SkillsList.astro'
+---
+<div>
+    <div class="flow flow-space-500" x-data="{ isOpen: false }">
+        <h2>Om mine kompetencer</h2>
+        <div>
+            <p>Som færdiguddannet multimediedesigner fra Erhvervsakademi sydvest i Esbjerg, har jeg stærke kompetencer lige fra design fasen til det færdige produkt. Derudover sørger jeg hele tiden for at dygtiggøre mig selv indenfor nye koncepter, deres faser samt værktøjer.</p>
+        </div>
+        <div x-cloak x-show="isOpen">
+            <p>Senest har jeg brugt meget tid på <strong>Flat file CMS</strong> samt <strong>Jamstack teknologien</strong> med Eleventy, Vue/nuxt, Sveltekit, Sanity og Statamic, da det kan giver mange fordele i forhold til den traditionelle måde at bygge en hjemmeside på. Som fx med Wordpress, Drupal og Umbraco. Nogle af fordelene jamstack byder på er bl.a. <strong>hastighed, tilgængelighed, sikkerhed, samt udviklingstiden ofte er hurtigere</strong>. Specielt statamic er et meget hurtig og fleksible platform at bygge en side på, hvis man ønsker noget der er skræddersyet og meget skalerbar, da den er bygget på laravel php. Dette betyder dog ikke at jeg ikke også holder meget af at lave hjemmesider på den traditionelle måde, hvilket stadig har en sine fordele. Men mere at jeg ikke går ind for at man altid bruger samme værktøj til at lave alle hjemmsider og web apps på, da alle opgaver er forskellige og dermed ikke burde at blive bygget på den samme måde.</p>
+        </div>
+        <div class="show-more mt-800 md:mt-700">
+            <Icon name="shadow" class="fill-current h-300 w-full" />
+            <!-- {{ '/src/_includes/partials/svg/shadow.svg' | svgContents("fill-current h-300 w-full") | safe }} -->
+            <button @click="isOpen = !isOpen" x-bind:class="! isOpen ? '' : 'is-open'">
+                <span>Læs</span> 
+                <span x-show="!isOpen">mere</span>
+                <span x-cloak x-show="isOpen">mindre</span>
+                <Icon name="arrow" class="fill-current" />
+                <!-- {{ '/src/_includes/partials/svg/arrow.svg' | svgContents("fill-current") | safe }} -->
+            </button>
+        </div>
+    </div>
+    <div class="[ flow ] [ flow-space-700 pt-500 ]">
+       
+        <SkillsList />
+
+            
+        <ul class="[ cluster ] [ gap-200 ]">
+
+                { categories.map((item) => item.frontmatter.highlighted &&
+                  <li>
+                    <CategoryItem title={item.frontmatter.title} link={item.frontmatter.link} iconSize={item.frontmatter.iconSize } />
+                  </li>
+                )}
+        </ul>
+        <div class="flow">
+            <h3 class="h4">Andre faglige kompetancer.</h3>
+       <ul class="[ cluster ] [ flow-space-200 gap-xs ]">
+        { categories.map((item) => !item.frontmatter.highlighted &&
+            <li class="text-300 opc-80">{item.frontmatter.title},</li>
+        )}
+       </ul>
+    </div>
+
+    </div>
+</div>
+
+

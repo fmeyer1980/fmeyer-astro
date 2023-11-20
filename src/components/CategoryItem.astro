@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon'
+import { slugify } from '../js/utils.js';
+
+interface Props {
+	title: string;
+	link: string;
+	iconSize: string;
+}
+
+const { title, link, iconSize } = Astro.props;
+---
+
+
+<a class="btn py-none h-800 md:h-750 d-flex items-center" data-type="secondary" target="_blank" rel="noreferrer" aria-label={title} href={`https://${link}/`}><Icon name={slugify(title)} class={'fill-current ' + ( iconSize )} /></a>

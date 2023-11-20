@@ -1,0 +1,111 @@
+{
+    "siteName": "Fmeyer",
+    "follow": [
+        "shoptalkshow.com",
+        "syntax.fm",
+        "thefutur.com",
+        "piccalil.li",
+        "every-layout.dev",
+        "learnwithjason.dev"
+    ],
+    "skills": [
+        {
+            "title": "UX & UI Design",
+            "number": "94"
+        },
+        {
+            "title": "Html & Core web vitals",
+            "number": "95"
+        },
+        {
+            "title": "Figma & Sketch",
+            "number": "91"
+        },
+        {
+            "title": "Css & Scss",
+            "number": "98"
+        },
+        {
+            "title": "Seo & accessibility",
+            "number": "75"
+        },
+        {
+            "title": "Javascript",
+            "number": "30"
+        }
+    ],
+    "workPlaces": [
+        {
+            "title": "Vestjyskmarketing",
+            "linkUrl": "vestjyskmarketing.dk",
+            "date": "2013-2017",
+            "text": "Var ansat i vestjyskmarketing hvor mine primær opgaver lå i design delen med UX og UI, samt frontend udvikler hvor jeg bl.a. var med til at lave deres eget vmcms system.",
+            "iconSize": "h-700"
+        },
+        {
+            "title": "Erhvervswebdesign",
+            "linkUrl": "erhvervswebdesign.dk",
+            "date": "2013-2017",
+            "text": "Var ansat i vestjyskmarketing hvor mine primær opgaver lå i design delen med UX og UI, samt frontend udvikler hvor jeg bl.a. var med til at lave deres eget vmcms system.",
+            "iconSize": "h-700"
+        },
+        {
+            "title": "Indexed",
+            "linkUrl": "indexed.dk",
+            "date": "2019-2020",
+            "text": "I min tid hos Indexed stod jeg med ansvaret for at bærer dem ind i en ny tid med mere fokus på design og core web vitals delen.",
+            "iconSize": "h-600"
+        },
+        {
+            "title": "Fokusdesign",
+            "linkUrl": "fokus.design",
+            "date": "2020-2023",
+            "text": "I min tid hos Indexed stod jeg med ansvaret for at bærer dem ind i en ny tid med mere fokus på design og core web vitals delen.",
+            "iconSize": "h-700"
+        }
+    ],
+    "scoreCardList": [
+        {
+            "title": "Performance",
+            "number": "100"
+        },
+        {
+            "title": "Accessibility",
+            "number": "100"
+        },
+        {
+            "title": "Best Practices",
+            "number": "100"
+        },
+        {
+            "title": "SEO",
+            "number": "100"
+        }
+    ],
+    "metricsList": [
+        {
+            "title": "First Contentful Paint",
+            "number": "1,0 s"
+        },
+        {
+            "title": "Speed Index",
+            "number": "1,0 s"
+        },
+        {
+            "title": "Largest Contentful Paint",
+            "number": "1,0 s"
+        },
+        {
+            "title": "Time to Interactive",
+            "number": "1,0 s"
+        },
+        {
+            "title": "Total Blocking Time",
+            "number": "1,0 s"
+        },
+        {
+            "title": "Cumulative Layout Shift",
+            "number": "1,0 s"
+        }
+    ]
+}

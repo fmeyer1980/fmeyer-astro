@@ -1,0 +1,51 @@
+---
+import settings from '../data/settings.json'
+---
+
+<ul class="skills-list [ gap-550 ]">
+
+    {settings.skills.map((item) =>
+    <li class="skills-list__item">
+        <h3 class="h4 [ mb-sm ]">{item.title}</h3>
+        <div class="skills-list__item__bar [ bg-dark-glare ]">
+            <div class="skills-list__item__bar__inner [ bg-primary ]" style={'width:' + item.number + '%;'}></div>
+        </div>
+    </li>
+    )}
+</ul>
+
+<style lang="scss">
+
+
+    @import './src/scss/config';
+    
+    $generate-utility-classes: false;
+    @import './node_modules/gorko/gorko.scss';
+    
+    .skills-list{
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: get-size('400');
+    
+    
+        &__item{
+            flex-basis: 40%;
+            min-width: 15rem;
+            flex-grow: 1;
+    
+    
+            &__bar{
+                height: calc(get-size('600') * 1.3);
+                border: dashed 1px rgba(get-color('white'), .15);
+                padding: 4px;
+                border-radius: 3px;
+    
+                &__inner{
+                    height: 100%;
+                    opacity: .9;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    </style>

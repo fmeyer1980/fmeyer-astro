@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets'
+import { type CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
+
+
+type Props = {
+  casee: CollectionEntry<"cases">;
+}
+
+const { caseItem } = Astro.props;
+const { title, cover_image, cover_image_alt, teaser, thumbnail } = caseItem.data;
+
+const catData = await getEntries(caseItem.data.categories);
+---
+<li>
+    <a href={'/cases/' + caseItem.slug} class=""transition:name={'case-image' + caseItem.slug}>
+        <img  src={thumbnail.src} alt="">
+        sd
+    </a>
+</li>
+
+<style>
+
+    li{
+        overflow: hidden !important;
+    }
+</style>

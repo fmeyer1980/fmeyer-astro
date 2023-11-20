@@ -1,0 +1,61 @@
+---
+import FeaturedCase from '../components/FeaturedCase.astro';
+import { getCollection } from 'astro:content';
+import WorkPlaces from '../components/WorkPlaces.astro';
+import CoreWebVitals from '../components/CoreWebVitals.astro';
+
+const allCases = await getCollection("cases");
+allCases.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+---
+
+<div class="main-content__bottom bg-dark-shade pb-700 flow ">
+    <svg class="gg css-filter" width="100%" viewBox="0 0 600 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0V350C0 350 20.3572 166.526 300 166.526C579.643 166.526 600 0 600 0H0Z" />
+    </svg>
+    <div class="ml-700 md:ml-900 ttss">
+      <h2 class="pt-800">Seneste referencer</h2>
+      <ul class="reel gap-500 mt-600">
+        { allCases.map((item) => 
+          <FeaturedCase caseItem={item} />
+        )}
+      </ul>
+    </div>
+    <div class="mx-700 lg:mx-900">
+      <div class="measure-long flow">
+        <div class="measure-long flow">
+          <WorkPlaces />
+        </div>
+        <div class="page-content [ flow ]"><h2>Hvad jeg kan bidrage med</h2><p>Som person vil du opleve at jeg bidrager med kreativitet, engagement, ansvarsbevidsthed og målrettethed. Derudover er jeg nørdet på den måde, at jeg arbejder meget seriøst med mine opgaver og fordyber mig med hud og hår i dem, specielt når det kommer til core web vitals, som jeg ofte føler er lidt en overset kapitel når det kommer til hjemmesidens opbygning.</p></div>
+        <CoreWebVitals />
+      </div>
+    </div>
+
+    <div class="confetti-bg">
+        <img loading="lazy" src="./images/confetti.webp" alt="Billede af confetti">
+    </div>
+</div>
+
+<style lang="scss">
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+  .ttss{
+    position: relative;
+
+    &::after{
+      content: "";
+      position: absolute;
+      width: var(--gutter);
+      height: var(--size-400);
+      bottom: 0;
+      right: 0;
+      background-color: get-color("dark-shade");
+      z-index: 999;
+    }
+  }
+
+
+</style>

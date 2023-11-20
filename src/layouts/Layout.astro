@@ -1,0 +1,204 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+    description: string;
+    primaryColor: string;
+    baseColor: string;
+}
+import '../scss/style.scss'
+
+const { title, primaryColor, baseColor, description } = Astro.props;
+---
+
+<script>
+    import Alpine from 'alpinejs';
+    window.Alpine = Alpine;
+    Alpine.start();
+</script>
+
+<script>
+    new Glide('.glide').mount()
+</script>
+
+<script>
+    function setBoxHeight(){
+        const box = document.querySelector('.cover-image__inner');
+        const root = document.querySelector(':root');
+        root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
+    }
+    window.addEventListener('resize', setBoxHeight);
+    window.addEventListener('DOMContentLoaded', setBoxHeight);
+    document.addEventListener('astro:after-swap', setBoxHeight);
+</script>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <meta name="description" content={description}>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+        <ViewTransitions />
+	</head>
+	<body>
+		<main >
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style is:global lang="scss" define:vars={{ primaryColor, baseColor }}>
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+@import "./node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+:root{
+    --primaryColor: 40, 81%, 67%;
+    --hsl-s: 81%;
+    --hsl-l: 67%;
+    --primary: hsl(var(--primaryColor));
+    --color: 40, 81%, 67%;
+
+    --baseColor: 171, 37%;
+
+    --dark-glare: var(--baseColor), 28%, 14%;
+    --dark: var(--baseColor), 11%;
+    --dark-shade: var(--baseColor), 9%;
+    --dark-shade-darker: var(--baseColor), 7%;
+}
+
+    
+.layout{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sidebar{
+    flex-basis: clamp(20rem, 35vw, 30rem);
+    flex-grow: 1;
+	min-height: 100vh;
+
+    ul{
+        margin-top: var(--flow-space) !important;
+    }
+
+    &__inner-wrapper{
+        position: sticky;
+        top: 0;
+    }
+
+    &__profile-image{
+        position: relative;
+        border-bottom: dashed 1px rgba(get-color('white'), .2);
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: get-color('primary');
+            mix-blend-mode: color;
+            @include apply-utility('opc','20');
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__socialmedia{
+
+        .list{
+
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: get-size('600');
+                height: get-size('600');
+                padding: 0px;
+            }
+            
+        }
+    }
+}
+
+.html-bg{
+    position: absolute;
+    top: calc(-1 * var(--size-900));
+    right: 0;
+    z-index: -1;
+    filter: blur(.8px);
+    opacity: .7;
+}
+
+.css-filter{
+      fill: get-color('dark');
+      
+    }
+
+    .main-content__bottom{
+        position: relative;
+        z-index: 1;
+        margin-top: calc(-1 * var(--size-800));
+    }
+
+    .main-content__bottom > svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        filter: drop-shadow(0 15px 10px rgba(33, 18, 38, .1));
+    }
+    
+    
+.confetti-bg{
+    position: absolute;
+    bottom: 0;
+    z-index: -2;
+    width: 100%;
+    filter: blur(1px);
+    &::after{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background: linear-gradient(to bottom, hsla(var(--dark-shade), 1), hsla(var(--dark-shade), .9));
+    }
+
+    > img{
+        width: 100%;
+    }
+    
+}
+    
+.main__bottom{
+    position: relative;
+    z-index: 1;
+    margin-top: calc(-1 * var(--size-800));
+
+    > svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        filter: drop-shadow(0px 15px 10px rgba(get-color('black'), .1));
+    }
+
+}
+</style>

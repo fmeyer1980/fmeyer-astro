@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, getEntry, getEntries } from 'astro:content';
+import { Image } from 'astro:assets';
+import CategoryItem from '../../components/CategoryItem.astro'
+import FeaturedCase from '../../components/FeaturedCase.astro';
+import settings from '../../data/settings.json';
+
+
+import WorkPlaces from '../../components/WorkPlaces.astro';
+import CoreWebVitals from '../../components/CoreWebVitals.astro';
+
+import { Icon } from 'astro-icon'
+
+
+export async function getStaticPaths() {
+  const casesEntries = await getCollection('cases');
+  return casesEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+
+// const testt = await getEntry(entry.data.ref);
+const categoriesList = await getEntries(entry.data.categories);
+
+// const allCases = await Astro.glob("../../content/cases/*.md")
+const allCases = await getCollection("cases");
+allCases.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+const relatedCases = allCases.filter((cases) => cases.data.title !== entry.data.title)
+---
+
+<Layout title={ settings.siteName + ' - ' + entry.data.title} description={entry.data.teaser} primaryColor={entry.data.colors.primary} baseColor={entry.data.colors.base} >
+    <div class="container-wrapper pt-900 flow flow-space-800">
+        <div class=" d-flex items-center gap-600 text-800">
+            <a class="link-back" href="/"><Icon name="arrow" class="fill-current" /></a>
+            <h1>{entry.data.title}</h1>
+        </div>
+
+        <p class="text-400 opc-70 measure-long text-balance flow-space-600">{entry.data.teaser}</p>
+        <ul class="[ cluster ] [ gap-200 flow-space-700 ]">
+            {categoriesList.map((item) => item.data.highlighted && 
+                <li class="">
+                    <CategoryItem title={item.data.title} link={item.data.link} iconSize={item.data.iconSize } />
+                </li>
+            )}
+            { entry.data.linkUrl && 
+                <li>
+                    <a class="btn  h-800 md:h-750" data-type="primary" target="_blank" href={entry.data.linkUrl}>Besøg {entry.data.title}</a>
+                </li>
+            }
+        </ul>
+        <div class="cover-image [ full-bleed ]" transition:name={'case-image' + entry.slug} >
+            <div class="cover-image__inner">
+                <Image class="anima img-placeholder" src={entry.data.cover_image} alt="" width="80" decoding="async" format="avif" fetchpriority="high" loading="eager" />
+                <Image class="anima main-image" src={entry.data.cover_image} alt="" width="1200" decoding="async" format="avif" />
+            </div>
+        </div>
+        <div class="case-content">
+            <div class="page-content flow flow-space-1em">
+                { entry.data.main_content.headline && <h2 class="text-700">{entry.data.main_content.headline}</h2>}
+
+                { entry.data.main_content.large_text && <p class="text-400 weight-bold">{entry.data.main_content.large_text}</p> }
+                <hr />
+                <p set:html={ entry.data.main_content.text ? entry.data.main_content.text : 'Tekst kommer snart...' } />
+                { entry.data.main_content.proof_of_concept.headline && 
+                <div>
+                    <h3 class="mb-600">{entry.data.main_content.proof_of_concept.headline}</h3>
+                    <ul class="proff-list flow flow-space-600">
+                        {entry.data.main_content.proof_of_concept.list.map((item) =>
+                            <li class="d-flex items-center gap-200">
+                                <div><Icon name="checkmark-new" class="color-dark fill-current" /></div><p class="weight-bold">{item} {item.tothfgal}</p>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+                }
+                <hr />
+            </div>
+        </div>
+        <div class="main-content__bottom bg-dark-shade pb-700 flow full-bleed">
+            <svg class="gg css-filter" width="100%" viewBox="0 0 600 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0V350C0 350 20.3572 166.526 300 166.526C579.643 166.526 600 0 600 0H0Z" />
+            </svg>
+                <div class="related-cases">
+                <h2 class="pt-800">Seneste referencer</h2>
+                <ul class="reel gap-500 mt-600" style="max-width: 100%">
+                    { relatedCases.map((item) => 
+                    <FeaturedCase caseItem={item} />
+                    )}
+                </ul>
+                </div>
+                <div class="container">
+                    <div class="flow">
+                        <div class="flow">
+                            <WorkPlaces />
+                        </div>
+                        <div class="page-content [ flow ]"><h2>Hvad jeg kan bidrage med</h2><p>Som person vil du opleve at jeg bidrager med kreativitet, engagement, ansvarsbevidsthed og målrettethed. Derudover er jeg nørdet på den måde, at jeg arbejder meget seriøst med mine opgaver og fordyber mig med hud og hår i dem, specielt når det kommer til core web vitals, som jeg ofte føler er lidt en overset kapitel når det kommer til hjemmesidens opbygning.</p></div>
+                        <CoreWebVitals />
+                    </div>
+                </div>
+                <div class="confetti-bg">
+                    <img loading="lazy" src="../images/confetti.webp" alt="Billede af confetti">
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="html-bg" src="../images/html-bg.webp" alt="Billede af html kode">
+    <div class="container-wrapper text-center bg-primary py-100">
+        <p class="text-100 color-dark-shade">For den bedste oplevelse anbefaldes der at bruge chrome browser da denne side bruger view-transition</p>
+     </div>
+</Layout>
+
+
+<style lang="scss">
+
+
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+.link-back{
+    background-color: get-color('dark-shade-darker');
+    width: 1em;
+    height: 1em;
+    border-radius: 50px;
+    flex-shrink: 0;
+    display: grid;
+    place-content: center;
+    border: dashed 1px rgba(get-color('white'), .2);
+    outline: 5px solid get-color('dark-shade-darker');
+    > svg{
+        height: 0.15em;
+        transform: rotate(90deg);
+    }
+}
+
+
+
+.proff-list{
+    
+    
+    p{
+        max-width: 55ch;
+    }
+
+    div{
+    background-color: get-color('primary');
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50px;
+    flex-shrink: 0;
+    display: grid;
+    place-content: center;
+    border: dashed 1px rgba(get-color('black'), .2);
+    outline: 2px solid get-color('primary');
+    }
+
+    svg{
+        height: .7em;
+    }
+}
+
+.cover-image{
+    max-width: var(--container-width-large);
+    padding-inline: var(--gutter);
+
+    .cover-image__inner{
+        border: var(--gutter) solid get-color('dark-shade');
+        outline: dashed 1px rgba(get-color('white'), .15);
+        background-color: get-color('dark-shade');
+        border-radius: 5px;
+        aspect-ratio: 1/1;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    .img-placeholder{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: auto;
+        filter: blur(5px);
+    }
+    
+    .main-image{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border-radius: 3px;
+        z-index: 1;
+    }
+}
+
+.case-content{
+    font-size: 18px;
+}
+
+.related-cases{
+    padding-left: var(--container-padding);
+    border-left: var(--gutter) solid transparent;
+}
+
+@keyframes ttt {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(calc(-100% + var(--boxHeight)));
+    }
+    
+}
+@supports (animation-timeline: scroll()) {
+    .anima{
+        
+        animation: ttt;
+        animation-timeline: scroll(block root);
+        animation-duration: auto;
+        animation-range: 0vh 100vh;
+        animation-fill-mode: forwards;
+    }
+}
+</style>

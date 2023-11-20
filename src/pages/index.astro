@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Aside from '../components/Aside.astro';
+import Intro from '../components/Intro.astro';
+import Skills from '../components/Skills.astro';
+import MainContentBottom from '../components/MainContentBottom.astro';
+import settings from '../data/settings.json';
+---
+  
+<Layout title={settings.siteName + ' -  Webudvikler med erfaring indenfor webdesign og udvikling'} description="Jeg har igennem 14 år fået en stor forståelse for at lave højkvalitets hjemmesider med fokus på brugervendlighed, synlighed og Core web vitals.">
+  <div class="layout" >
+  <Aside />
+	<div class="main-content [ flow ] [ flow-space-800 ]">
+    <div class="main-content__top mx-700 lg:mx-900 [ flow ] [ pt-900 measure-long ]">
+      <Intro />
+      <hr>
+      <Skills />
+      <hr>
+      <img class="html-bg" src="./images/html-bg.webp" alt="Billede af html kode">
+    </div>
+    <MainContentBottom />
+  </div>
+</div>
+</Layout>
+
+
+<style is:global lang="scss">
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+
+.main-content{
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 60%;
+	  min-height: 100vh;
+    font-size: get-size('400');
+    border-left: dashed 1px rgba(get-color('white'), .2);
+    overflow-x: hidden;
+}
+
+
+</style>
+

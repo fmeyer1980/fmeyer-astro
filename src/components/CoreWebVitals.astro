@@ -1,0 +1,126 @@
+---
+import { Icon } from 'astro-icon'
+import { slugify } from '../js/utils.js';
+import settings from '../data/settings.json';
+---
+
+<div class="core-web-vitals flow flow-space-700">
+    <ul class="primary-list cluster-grow gap-500">
+
+        { settings.scoreCardList.map((item) =>
+             <li class="primary-list__item">
+                <h3 class="h5">{item.title}</h3>
+                <div>
+                    {item.number}%
+                </div>
+            </li>
+        )}
+    </ul>
+    <ul class="metrics-list auto-grid text-200 mt-400">
+        { settings.scoreCardList.map((item) => 
+            <li class="metrics-list__item gap-200 p-200">
+                <p>{item.title}</p>
+                <strong>{item.number}</strong>
+                <Icon name="checkmark" class="color-primary fill-current h-400" />
+            </li>
+        )}
+
+    </ul>
+    <a class="btn [ self-center ]" data-type="secondary" rel="noreferrer" target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Ffmeyer.dk%2F">Se mållingerne på web.dev</a>
+    <a class="btn [ self-center opc-80 flow-space-100 gap-sm ]" data-type="default" rel="noreferrer" target="_blank" href="https://github.com/fmeyer1980/fmeyer"><Icon name="github" class="fill-current h-100" /><span class="shrink-none">Se koden på github</span></a>
+</div>
+
+<style lang="scss">
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+.core-web-vitals{
+    --border-size: 8px;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+
+    .btn{
+        position: relative;
+    }
+
+    .shrink-none{
+        flex-shrink: 0;
+    }
+
+    .primary-list{
+     
+        &__item{
+            background-color: get-color('dark');
+            border: dashed 1px rgba(get-color('white'), .2);
+            border-radius: 3px;
+            padding: get-size('550') get-size('300') get-size('600');
+            // aspect-ratio: 3 / 2;
+            position: relative;
+            z-index: -10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-basis: 20%;
+
+            h3{
+                margin-bottom: get-size('400');
+            }
+
+            > div{
+                position: relative;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                background-color: get-color('dark');
+                @include apply-utility('font','heading');
+                @include apply-utility('weight','bold');
+                font-size: get-size('100');
+                color: get-color('primary');
+                display: grid;
+                place-items: center;
+
+                &::after{
+                    content: "";
+                    width: calc(3rem + var(--border-size));
+                    height: calc(3rem + var(--border-size));
+                    position: absolute;
+                    top: calc(-1 * var(--border-size) / 2);
+                    left: calc(-1 * var(--border-size)/ 2);
+                    background-color: get-color('primary');
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+
+    .metrics-list{
+        column-gap: get-size('500');
+        
+        &__item{
+            display: flex;
+            align-items: center;
+            border-bottom: dashed 1px rgba(get-color('white'), .2);
+            justify-content: end;
+
+        p{
+            margin-inline-end: auto;
+        }
+
+          svg{
+            max-width: max-content;
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+        }
+    }
+    
+
+}
+</style>

@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon'
+import { slugify } from '../js/utils.js';
+import settings from '../data/settings.json';
+
+---
+<div class="[ flow ] [ flow-space-700 ]">
+    <h2 class="measure-compact">Firma’er som jeg har arbejdet for de sidste 10 år</h2>
+    <ul class="workplaces">
+        { settings.workPlaces.map((item) =>
+            <li class="workplaces__item flow flow-space-500">
+                <div class="cluster items-center gap-500">
+                    <a class="link-parent" target="_blank" rel="noreferrer" aria-label={item.title} href={`https://${item.linkUrl}/`}><Icon name={slugify(item.title)} class={'fill-current ' + ( item.iconSize )} /></a>
+                    <span class="year text-100 opc-80">{item.date}</span>
+                </div>
+                <div class="text-200 opc-80 measure-long">
+                    {item.text}
+                </div>
+            </li>
+        )}
+    </ul>
+</div>
+
+<style lang="scss">
+
+@import './src/scss/config';
+
+$generate-utility-classes: false;
+@import './node_modules/gorko/gorko.scss';
+
+.workplaces{
+    &__item{
+        position: relative;
+        padding: var(--size-600) 0;
+        border-top: dashed 1px rgba(get-color('white'), .2);
+
+        :hover a{
+            color: var(--primary);
+        }
+
+        @include media-query('md'){
+            padding: var(--size-700);
+        }
+        
+        &:nth-child(odd){
+            background: linear-gradient(to right, hsla(var(--dark-shade)), hsla(var(--dark)), hsla(var(--dark-shade)));
+        }
+
+        &:last-child{
+            border-bottom: dashed 1px rgba(get-color('white'), .2);
+        }
+
+        .year{
+            border: dashed 1px rgba(get-color('white'), .2);
+            border-radius: 3px;
+            padding: .4em 1em;
+        }
+
+        a{
+            transition: color 300ms ease;
+        }
+    }
+}
+</style>
