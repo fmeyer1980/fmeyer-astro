@@ -22,7 +22,16 @@ const { title, primaryColor, baseColor, description } = Astro.props;
     new Glide('.glide').mount()
 </script>
 
-
+<script>
+    function setBoxHeight(){
+        const box = document.querySelector('.cover-image__inner');
+        const root = document.querySelector(':root');
+        root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
+    }
+    window.addEventListener('resize', setBoxHeight);
+    window.addEventListener('DOMContentLoaded', setBoxHeight);
+    document.addEventListener('astro:after-swap', setBoxHeight);
+</script>
 
 <!doctype html>
 <html lang="en">
