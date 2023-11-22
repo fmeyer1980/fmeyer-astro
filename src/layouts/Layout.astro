@@ -11,7 +11,16 @@ import '../scss/style.scss'
 
 const { title, primaryColor, baseColor, description } = Astro.props;
 ---
-
+<script>
+    function setBoxHeight(){
+        const box = document.querySelector('.cover-image__inner');
+        const root = document.querySelector(':root');
+        root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
+    }
+    window.addEventListener('resize', setBoxHeight);
+    window.addEventListener('DOMContentLoaded', setBoxHeight);
+    document.addEventListener('astro:after-swap', setBoxHeight);
+</script>
 
 
 <!doctype html>
@@ -24,28 +33,20 @@ const { title, primaryColor, baseColor, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
         <meta name="description" content={description}>
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
         <ViewTransitions />
 	</head>
 	<body>
-		<main >
+		<main class="">
 			<slot />
+            <div class="cover-image__inner"></div>
 		</main>
+
         <script>
             import Alpine from 'alpinejs';
             window.Alpine = Alpine;
             Alpine.start();
         </script>
-        <script>
-            function setBoxHeight(){
-                const box = document.querySelector('.cover-image__inner');
-                const root = document.querySelector(':root');
-                root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
-            }
-            window.addEventListener('resize', setBoxHeight);
-            window.addEventListener('DOMContentLoaded', setBoxHeight);
-            document.addEventListener('astro:after-swap', setBoxHeight);
-        </script>
+
 	</body>
 </html>
 
@@ -72,7 +73,6 @@ $generate-utility-classes: false;
 
     --boxHeight: auto;
 }
-
     
 .layout{
     display: flex;
