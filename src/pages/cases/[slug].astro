@@ -12,6 +12,10 @@ import CoreWebVitals from '../../components/CoreWebVitals.astro';
 
 import { Icon } from 'astro-icon'
 
+import { Image } from 'astro:assets'
+import Confetti from '../../assets/confetti.webp';
+import HtmlBg from '../../assets/html-bg.webp';
+
 
 export async function getStaticPaths() {
   const casesEntries = await getCollection('cases');
@@ -105,12 +109,12 @@ const relatedCases = allCases.filter((cases) => cases.data.title !== entry.data.
                     </div>
                 </div>
                 <div class="confetti-bg">
-                    <img loading="lazy" src="../images/confetti.webp" alt="Billede af confetti">
+                    <Image src={Confetti} alt="Billede af confetti" width="640" format="avif"  />
                 </div>
             </div>
         </div>
     </div>
-    <img class="html-bg" src="/images/html-bg.webp" alt="Billede af html kode">
+    <Image class="html-bg" src={HtmlBg} alt="Billede af html kode" width="264" format="avif" />
     <div class="container-wrapper text-center bg-primary py-100">
         <p class="text-100 color-dark-shade">For den bedste oplevelse anbefaldes der at bruge chrome browser da denne side bruger view-transition</p>
      </div>

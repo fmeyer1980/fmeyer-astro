@@ -3,6 +3,8 @@ import FeaturedCase from '../components/FeaturedCase.astro';
 import { getCollection } from 'astro:content';
 import WorkPlaces from '../components/WorkPlaces.astro';
 import CoreWebVitals from '../components/CoreWebVitals.astro';
+import { Image } from 'astro:assets'
+import Confetti from '../assets/confetti.webp';
 
 const allCases = await getCollection("cases");
 allCases.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
@@ -31,7 +33,8 @@ allCases.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
     </div>
 
     <div class="confetti-bg">
-        <img loading="lazy" src="./images/confetti.webp" alt="Billede af confetti">
+        <Image src={Confetti} alt="Billede af confetti" width="640" format="avif"  />
+        <!-- <img loading="lazy" src="/images/confetti.webp" alt="Billede af confetti"> -->
     </div>
 </div>
 

@@ -5,6 +5,8 @@ import Intro from '../components/Intro.astro';
 import Skills from '../components/Skills.astro';
 import MainContentBottom from '../components/MainContentBottom.astro';
 import settings from '../data/settings.json';
+import { Image } from 'astro:assets'
+import HtmlBg from '../assets/html-bg.webp';
 ---
   
 <Layout title={settings.siteName + ' -  Webudvikler med erfaring indenfor webdesign og udvikling'} description="Jeg har igennem 14 år fået en stor forståelse for at lave højkvalitets hjemmesider med fokus på brugervendlighed, synlighed og Core web vitals.">
@@ -16,7 +18,7 @@ import settings from '../data/settings.json';
       <hr>
       <Skills />
       <hr>
-      <img class="html-bg" src="./images/html-bg.webp" alt="Billede af html kode">
+      <Image class="html-bg" src={HtmlBg} alt="Billede af html kode" width="264" format="avif" />
     </div>
     <MainContentBottom />
   </div>
