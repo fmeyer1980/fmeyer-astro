@@ -85,27 +85,23 @@
     "metricsList": [
         {
             "title": "First Contentful Paint",
-            "number": "1,0 s"
+            "number": "1,3 sek"
         },
         {
             "title": "Speed Index",
-            "number": "1,0 s"
+            "number": "1,6 sek"
         },
         {
             "title": "Largest Contentful Paint",
-            "number": "1,0 s"
-        },
-        {
-            "title": "Time to Interactive",
-            "number": "1,0 s"
+            "number": "1,5 sek"
         },
         {
             "title": "Total Blocking Time",
-            "number": "1,0 s"
+            "number": "10 ms"
         },
         {
             "title": "Cumulative Layout Shift",
-            "number": "1,0 s"
+            "number": "0"
         }
     ]
 }
