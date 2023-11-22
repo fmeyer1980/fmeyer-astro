@@ -110,12 +110,22 @@ const relatedCases = allCases.filter((cases) => cases.data.title !== entry.data.
             </div>
         </div>
     </div>
-    <img class="html-bg" src="../images/html-bg.webp" alt="Billede af html kode">
+    <img class="html-bg" src="/images/html-bg.webp" alt="Billede af html kode">
     <div class="container-wrapper text-center bg-primary py-100">
         <p class="text-100 color-dark-shade">For den bedste oplevelse anbefaldes der at bruge chrome browser da denne side bruger view-transition</p>
      </div>
 </Layout>
 
+<script>
+    function setBoxHeight(){
+        const box = document.querySelector('.cover-image__inner');
+        const root = document.querySelector(':root');
+        root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
+    }
+    window.addEventListener('resize', setBoxHeight);
+    window.addEventListener('DOMContentLoaded', setBoxHeight);
+    document.addEventListener('astro:after-swap', setBoxHeight);
+</script>
 
 <style lang="scss">
 
