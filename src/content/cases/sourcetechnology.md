@@ -6,16 +6,16 @@ cover_image: /src/assets/sourchTech-full.jpg
 cover_image_alt: Billede af nobel hjemmeside design
 thumbnail: /src/assets/sourchTech.jpg
 categories:
+  - figma
   - wordpress
   - bricks
-  - figma
-linkUrl: "https://twilight-desert-ymfliyco9m.ploi.online/"
+linkUrl: ""
 hasLandingpage: true
 colors:
   primary: 29, 92%, 58%
   base: 201, 64%
 main_content:
-  headline: "Kort tekst om casen"
+  headline: "Siden er under udvikling"
   large_text: ""
   text: ""
   proof_of_concept:

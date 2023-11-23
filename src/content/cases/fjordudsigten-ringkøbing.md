@@ -15,9 +15,9 @@ colors:
   primary: 70, 31%, 63%
   base: 85, 29%
 main_content:
-  headline: "Kort tekst om casen"
-  large_text: ""
-  text: ""
+  headline: "Fokus på kvalitet og hastighed"
+  large_text: "Når kvalitet ikke må blive overset, men kunden ikke har det store budget, er Statamic et uundværlig cms system som giver alle de rette værktøjer til opgaven."
+  text: "Siden er en hobby projekt og er mest lavet for at færdigøre mine kompetencer samt at finde hurtigere måder at udvikle en hjemmeside på hvor der stadig ikke gåes med kompromis med kvalitet, samt bruger vendelighed i cms delen.<br /><br />Siden er blevet bygget på 14,5 timer og er bygget fra bunden med statamic og hvor der er blevet brugt genbrugelig komponenter som kan bruges på alle sider så man på den måde selv nemt kan bygge nye undersider ud fra en række moduler. Derudover er siden blevet bygget med Tailwindcss samt Alpinejs for at gøre siden så fleksible og performance som muligt, samt at det er hurtigt og nemt at arbejde."
   proof_of_concept:
     headline: ""
     list:

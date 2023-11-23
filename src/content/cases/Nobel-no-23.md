@@ -18,7 +18,7 @@ colors:
   primary: 26, 52%, 63%
   base: 229, 22%
 main_content:
-  headline: "Kort tekst om casen"
+  headline: "Siden er under opbygning"
   large_text: ""
   text: ""
   proof_of_concept:

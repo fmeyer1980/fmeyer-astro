@@ -16,10 +16,9 @@ colors:
   base: 40, 14%
 main_content:
   headline: "Kort tekst om casen"
-  large_text: "AUBO er en vestjysk virksomhed, der forstår sig på køkkener og kvaliteten af dem de er og bliver en af de helt store mastodonter på markedet."
-  text: "AUBO er en vestjysk virksomhed, der forstår sig på køkkener og kvaliteten af dem. De er og bliver en af de helt store mastodonter på markedet, når det kommer til at indfri nye køkkendrømme, badeværelser eller andre rum i boligen.<p>Selv siger de, at de er “Køkken for kendere”, hvilket måske i virkeligheden er vestjysk ydmyghed, da de uden tvivl er en af Danmarks stærkeste køkkenforhandlere. Det kræver lidt af en hjemmeside at repræsentere netop dette. Så det har vi haft til opgave at løfte.</p>"
+  large_text: ""
   proof_of_concept:
-    headline: "Vores hovedfokus er:"
+    headline: ""
     list:
       - produktion af video content til Facebook, Instagram og andre sociale medier
       - online annoncering med content plan, indrykning, løbende annonce optimering samt effektiv statistik på resultater

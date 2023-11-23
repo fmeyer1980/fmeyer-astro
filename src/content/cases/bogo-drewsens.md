@@ -17,10 +17,10 @@ colors:
 main_content:
   headline: "Udvikling i shopify 3.0"
   large_text: "B&O Drewsens nye shop er blevet udviklet med det nyeste shopify har at byde på og i samarbejde med nomilk ha vi lavet en webshop som giver brugeren den perfekte sanseoplevelse som matcher det som B&O står for."
-  text: "Siden er blevet udviklit i shopify's helt nye online Store 3.0 med modulær moduler i json samt liquid filer for at give den perfekte frihed og skalerbarhed. Derudover er siden blevet bygget det populære utility-first CSS-framework Tailwindcss som giver stor fleksibilitet for at tilpasse designet, da det ikke låser en fast i foruddefinerede komponenter. Dette gør det lettere at skabe unikke og skræddersyede brugergrænseflader, der opfylder specifikke designbehov og sammen med Alpinejs er der rigtig skruet op for den morderned udviklings tilgang som er bygget på flexibilitet og hastighed, samt genbruglighed i komponenter gennem hele siden."
+  text: "Shoppen er blevet udviklet i shopify's helt nye online Store 3.0 med modulær moduler i json samt liquid filer, for at give den perfekte frihed og skalerbarhed. Derudover er siden blevet bygget med det populære utility-first CSS-framework Tailwindcss som giver stor fleksibilitet for at tilpasse designet. Dette gør det lettere at skabe unikke og skræddersyede brugergrænseflader, der opfylder specifikke designbehov og sammen med Alpinejs er der rigtig skruet op for den morderned udviklings tilgang som er bygget på fleksibilitet og hastighed, samt genbruglighed i komponenter gennem hele siden."
   proof_of_concept:
     headline: "Hovedfokus ved opgaven"
     list:
-      - Siden skulle være så fleksible som muligt hvor kunden nemt selv kunne oprette nye sider udfra moduler
+      - Siden skulle være så fleksible som muligt hvor kunden nemt selv kunne oprette nye sider ud fra moduler
       - Det var vigtigt at webshoppen udviste hvad B&O står for, samt give en luksus følelse.
 ---
