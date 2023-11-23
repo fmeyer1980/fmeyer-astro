@@ -1,23 +1,23 @@
 ---
-title: Ree park safari
-date: 11/17/2023
-teaser: >-
-  Dette er kun et hobby projeckt hvor jeg har lavet et lille redsign med fokus
-  på at gører den mere enkelt og overskelig.
-cover_image: /src/assets/ree-park-full.jpg
+title: Kompletbad
+date: 11/16/2023
+teaser: "Ny skræddersyet hjemmeside til kompletbad, som er en fusionering af jacobibyg og finnhansen."
+cover_image: /src/assets/kompletbad-full.jpg
 cover_image_alt: Billede af ree park design
-thumbnail: /src/assets/reepark-image.jpg
+thumbnail: /src/assets/kompletbad.jpg
 ref: astro
 categories:
-  - astro
   - figma
-linkUrl: ""
+  - statamic
+  - alpinejs
+  - tailwindcss
+linkUrl: "https://kompletbad.dk/"
 hasLandingpage: true
 colors:
-  primary: 61, 28%, 48%
-  base: 34, 33%
+  primary: 177, 66%, 63%
+  base: 210, 65%
 main_content:
-  headline: "Redesign af Ree park"
+  headline: "Kort tekst om casen"
   large_text: ""
   text: ""
   proof_of_concept:
@@ -27,4 +27,3 @@ main_content:
       - online annoncering med content plan, indrykning, løbende annonce optimering samt effektiv statistik på resultater
       - rådgivning omkring segmenter, medier, videomuligheder og content strategi
 ---
-
