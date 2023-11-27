@@ -2,8 +2,8 @@
 title: Kompletbad
 date: 11/16/2023
 teaser: "Ny skræddersyet hjemmeside til kompletbad, som er en fusionering af jacobibyg og finnhansen."
-cover_image: /src/assets/kompletbad-full.jpg
-cover_image_alt: Billede af nobel hjemmeside design
+cover_image: /src/assets/kompletbad.jpg
+cover_image_alt: Billede af ree park design
 thumbnail: /src/assets/kompletbad.jpg
 categories:
   - figma
@@ -13,11 +13,12 @@ categories:
 linkUrl: "https://kompletbad.dk/"
 hasLandingpage: true
 colors:
-  primary: 40, 62%, 70%
-  base: 40, 14%
+  primary: 177, 66%, 63%
+  base: 210, 65%
 main_content:
   headline: "Kort tekst om casen"
   large_text: ""
+  text: ""
   proof_of_concept:
     headline: ""
     list:
@@ -25,4 +26,3 @@ main_content:
       - online annoncering med content plan, indrykning, løbende annonce optimering samt effektiv statistik på resultater
       - rådgivning omkring segmenter, medier, videomuligheder og content strategi
 ---
-
