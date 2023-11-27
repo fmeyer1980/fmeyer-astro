@@ -2,8 +2,8 @@
 title: Kompletbad
 date: 11/16/2023
 teaser: "Ny skræddersyet hjemmeside til kompletbad, som er en fusionering af jacobibyg og finnhansen."
-cover_image: /src/assets/kompletbad.jpg
-cover_image_alt: Billede af ree park design
+cover_image: /src/assets/kompletbad-full-image.jpg
+cover_image_alt: Billede af kompletbad hjemmeside
 thumbnail: /src/assets/kompletbad.jpg
 categories:
   - figma

@@ -9,7 +9,6 @@ cover_image_alt: Billede af ree park design
 thumbnail: /src/assets/reepark-image.jpg
 ref: astro
 categories:
-  - astro
   - figma
 linkUrl: ""
 hasLandingpage: true
