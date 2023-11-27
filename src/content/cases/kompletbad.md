@@ -5,7 +5,6 @@ teaser: "Ny skræddersyet hjemmeside til kompletbad, som er en fusionering af ja
 cover_image: /src/assets/kompletbad-full.jpg
 cover_image_alt: Billede af ree park design
 thumbnail: /src/assets/kompletbad.jpg
-ref: astro
 categories:
   - figma
   - statamic
