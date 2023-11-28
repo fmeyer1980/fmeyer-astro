@@ -1,9 +1,9 @@
 ---
 title: Dyrlægegruppen
 date: 11/10/2023
-teaser: "Lavet i samarbejde med jyskwebbureau, hvor jeg har stået for udviklingen i webflow"
+teaser: "Ny webflow side som tager dyrlægegruppens hjemmeside til nye højder."
 cover_image: /src/assets/dyrlaegegruppen-full.jpg
-cover_image_alt: Billede af nobel hjemmeside design
+cover_image_alt: Billede af dyrlægegruppens hjemmeside
 thumbnail: /src/assets/dyrlaegegruppen.jpg
 categories:
   - webflow

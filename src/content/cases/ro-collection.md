@@ -1,7 +1,7 @@
 ---
 title: Ro collection
 date: 11/15/2023
-teaser: "Ny webshop i shopify som er blevet bygget fra bunden med liquid kode, tailwindcss samt alpinejs. Siden er blevt bygget i et samarbejde med nomilk."
+teaser: "Ny webshop i shopify som er blevet bygget fra bunden med liquid kode, tailwindcss samt alpinejs."
 cover_image: /src/assets/ro-collection-full.jpg
 cover_image_alt: Billede af nobel hjemmeside design
 thumbnail: /src/assets/ro-collection.png
