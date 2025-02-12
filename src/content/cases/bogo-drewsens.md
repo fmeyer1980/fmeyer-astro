@@ -1,6 +1,6 @@
 ---
 title: B&O Drewsens
-date: 11/20/2023
+date: 11/20/2025
 teaser: "Ny webshop i shopify som er blevet bygget fra bunden med liquid kode, tailwindcss samt alpinejs."
 cover_image: /src/assets/screencapture-drewsens-2023-11-16-17_09_58.jpg
 cover_image_alt: Billede af nobel hjemmeside design
