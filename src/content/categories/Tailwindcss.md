@@ -1,6 +1,6 @@
 ---
 title: Tailwindcss
-iconSize: h-half
+iconSize: h-40
 link: tailwindcss.com
 highlighted: true
 ---

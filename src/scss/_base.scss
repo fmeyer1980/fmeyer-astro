@@ -69,3 +69,24 @@ strong:not([class]){
 .text-center{
   text-align: center;
 }
+
+p{
+  text-wrap: pretty;
+}
+
+.content{
+
+  b{
+    color: get-color('white');
+  }
+
+  button{
+    background-color: transparent;
+    border: none;
+    color: get-color('white');
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+}

@@ -6,13 +6,18 @@ import CategoryItem from './CategoryItem.astro';
 import SkillsList from '../components/SkillsList.astro'
 ---
 <div>
-    <div class="flow flow-space-500" x-data="{ isOpen: false }">
+
+    <div class="flow flow-space-500" x-data="{ isOpen: false, popover: false }">
         <h2>Om mine kompetencer</h2>
         <div>
-            <p>Som færdiguddannet multimediedesigner fra Erhvervsakademi sydvest i Esbjerg, har jeg stærke kompetencer lige fra design fasen til det færdige produkt. Derudover sørger jeg hele tiden for at dygtiggøre mig selv indenfor nye koncepter, deres faser samt værktøjer.</p>
+            <p>Som færdiguddannet <strong>multimediedesigner</strong> fra Erhvervsakademi Sydvest i Esbjerg i 2007 har jeg en del års erfaring inden for området. Dog er jeg stadig sulten efter at lære nye ting inden for området, som jeg kan nørde lidt med og samtidig udvikle mine kompetencer.</p>
         </div>
-        <div x-cloak x-show="isOpen">
-            <p>Senest har jeg brugt meget tid på <strong>Flat file CMS</strong> samt <strong>Jamstack teknologien</strong> med Eleventy, Vue/nuxt, Sveltekit, Sanity og Statamic, da det kan giver mange fordele i forhold til den traditionelle måde at bygge en hjemmeside på. Som fx med Wordpress, Drupal og Umbraco. Nogle af fordelene jamstack byder på er bl.a. <strong>hastighed, tilgængelighed, sikkerhed, samt udviklingstiden ofte er hurtigere</strong>. Specielt statamic er et meget hurtig og fleksible platform at bygge en side på, hvis man ønsker noget der er skræddersyet og meget skalerbar, da den er bygget på laravel php. Dette betyder dog ikke at jeg ikke også holder meget af at lave hjemmesider på den traditionelle måde, hvilket stadig har en sine fordele. Men mere at jeg ikke går ind for at man altid bruger samme værktøj til at lave alle hjemmsider og web apps på, da alle opgaver er forskellige og dermed ikke burde at blive bygget på den samme måde.</p>
+        <div x-cloak x-show="isOpen" class="content flow">
+            <p>Senest har jeg brugt en del tid på at finde den bedste, hurtigste og mest fleksible måde at lave en hjemmeside på, hvor <strong>brugervenligheden</strong> samt <strong>udviklingsmiljøet</strong> har været i fokus. Nogle af de systemer, jeg har dykket en del ned i, er headless CMS-systemer som fx <strong>Sanity og headless WordPress med Astro.</strong> Derudover har jeg en del erfaring inden for page builders som fx <strong>Webflow, Bricks, Elementor og Etch</strong>, som er det nyeste skud på stammen.</p>
+            <p>Ellers har jeg også en del erfaring med Laravel og Statamic samt custom WordPress sider med fx <strong>ACF Flexible Content</strong> eller custom Gutenberg blocks med <strong>ACF og inline editing.</strong> Sidstnævnte har klart en del fordele, når det kommer til brugervenlighed, så kunden selv kan opdatere indhold. Men alle systemer har deres fordele og ulemper, og jeg har til dato ikke stødt på et system, der er perfekt til alle løsninger – heller ikke AI, som jeg har eksperimenteret med og dagligt bruger som et værktøj til at assistere mig i at lave hjemmesider. Jeg bruger det dog kun som et værktøj, da AI endnu ikke kan lave en hjemmeside helt på egen hånd, og jeg tvivler på, at det sker i den nærmeste fremtid. Men som et redskab til at være mere produktiv, er der ingen tvivl om at det er et rigtig godt værktøj at benytte sig af.</p>
+            <!-- <div x-show="popover" class="popover">
+                <video muted autoplay loop src="/src/assets/"></video>
+            </div> -->
         </div>
         <div class="show-more mt-800 md:mt-700">
             <Icon name="shadow" class="fill-current h-300 w-full" />
@@ -51,4 +56,16 @@ import SkillsList from '../components/SkillsList.astro'
     </div>
 </div>
 
+<style>
+    .popover{
+        position: absolute;
+        z-index: 99;
+        width: 90%;
+        max-width: 40rem;
+        aspect-ratio: 16/9;
 
+        video{
+            width: 100%;
+        }
+    }
+</style>

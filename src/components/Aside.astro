@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon'
 <aside class="sidebar [ bg-dark-glare color-light ]">
     <div class="sidebar__inner-wrapper">
         <div class="sidebar__profile-image">
-            <Image src={profileImage} width="600" format="avif" fetchpriority="high" loading="eager" alt="Billede af Flemming Meyer" />
+            <Image src={profileImage} width="900" format="avif" fetchpriority="high" loading="eager" alt="Billede af Flemming Meyer" />
         </div>
         <div class="sidebar__content [ px-700 py-800 flow flow-space-600 md:px-800 ]">
             <div class="[ flow flow-space-sm ]">
@@ -109,6 +109,7 @@ $generate-utility-classes: false;
     &__profile-image{
         position: relative;
         border-bottom: dashed 1px rgba(get-color('white'), .2);
+        aspect-ratio: 7/8;
         &::after{
             content: "";
             position: absolute;
